@@ -910,7 +910,6 @@ body, button, input, textarea{font-family:var(--sans);}
     },{passive:true});
   }
 
-  /* EDITION HOVER SLIDER */
   (function(){
     const track    = document.getElementById('edTrack');
     const dots     = document.querySelectorAll('#edDots .ed-dot');
@@ -918,9 +917,9 @@ body, button, input, textarea{font-family:var(--sans);}
     const nextZone = document.getElementById('edHoverNext');
     if(!track || !prevZone || !nextZone) return;
 
-    const TOTAL        = track.children.length; // 5
-    const FIRST_DELAY  = 600;  // ms 처음 진입 후 첫 슬라이드까지 대기
-    const REPEAT_DELAY = 900;  // ms 이후 연속 슬라이드 간격
+    const TOTAL        = track.children.length;
+    const FIRST_DELAY  = 600;
+    const REPEAT_DELAY = 900;
     let current = 0;
     let firstTimer = null;
     let repeatTimer = null;
@@ -933,10 +932,8 @@ body, button, input, textarea{font-family:var(--sans);}
 
     function startHover(dir){
       stopHover();
-      // 첫 슬라이드
       firstTimer = setTimeout(() => {
         goTo(current + dir);
-        // 같은 방향으로 계속 호버 중이면 반복
         repeatTimer = setInterval(() => goTo(current + dir), REPEAT_DELAY);
       }, FIRST_DELAY);
     }
